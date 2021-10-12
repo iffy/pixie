@@ -18,7 +18,8 @@ jobs:
     - run: nim cpp -d:release -r tests/all.nim
     - shell: bash
       run: |
-        nimble install winim wNim
+        nimble install -y winim
+        nimble install -y wNim
         for nimfile in $(ls examples/*.nim); do
           echo "Testing $nimfile"
           nim --path:$(pwd)/src check $nimfile
